@@ -6,6 +6,36 @@ let oper = false;
 let num = false;
 let zero = true;
 
+function calculate() {
+  let index;
+  let sum;
+  while (res.includes("*")) {
+    index = res.indexOf("*");
+    sum = parseFloat(res[index - 1]) * parseFloat(res[index + 1]);
+    res.splice(index - 1, 3, sum);
+  }
+  while (res.includes("/")) {
+    index = res.indexOf("/");
+    sum = parseFloat(res[index - 1]) / parseFloat(res[index + 1]);
+    res.splice(index - 1, 3, sum);
+  }
+  while (res.includes("+")) {
+    index = res.indexOf("+");
+    sum = parseFloat(res[index - 1]) + parseFloat(res[index + 1]);
+    res.splice(index - 1, 3, sum);
+  }
+  while (res.includes("-")) {
+    index = res.indexOf("-");
+    sum = parseFloat(res[index - 1]) - parseFloat(res[index + 1]);
+    res.splice(index - 1, 3, sum);
+  }
+  ventana.value = res[0].toFixed(2);
+  numero.splice(0, numero.length, res[0]);
+  res.splice(0, res.length);
+  num = true;
+  oper = false;
+}
+
 function inputIn(symbol) {
   console.log(cadena);
   if (cadena.length < 12) {
@@ -35,7 +65,7 @@ function inputIn(symbol) {
     }
 
     if (parseInt(symbol) > 0 && parseInt(symbol) <= 9) {
-      if (cadena.length == 0) {
+      if (cadena.length === 0) {
         ventana.value = "";
       }
       ventana.value += symbol;
@@ -67,36 +97,6 @@ function inputIn(symbol) {
       calculate();
     }
   }
-}
-
-function calculate() {
-  let index;
-  let sum;
-  while (res.includes("*")) {
-    index = res.indexOf("*");
-    sum = parseFloat(res[index - 1]) * parseFloat(res[index + 1]);
-    res.splice(index - 1, 3, sum);
-  }
-  while (res.includes("/")) {
-    index = res.indexOf("/");
-    sum = parseFloat(res[index - 1]) / parseFloat(res[index + 1]);
-    res.splice(index - 1, 3, sum);
-  }
-  while (res.includes("+")) {
-    index = res.indexOf("+");
-    sum = parseFloat(res[index - 1]) + parseFloat(res[index + 1]);
-    res.splice(index - 1, 3, sum);
-  }
-  while (res.includes("-")) {
-    index = res.indexOf("-");
-    sum = parseFloat(res[index - 1]) - parseFloat(res[index + 1]);
-    res.splice(index - 1, 3, sum);
-  }
-  ventana.value = res[0].toFixed(2);
-  numero.splice(0, numero.length, res[0]);
-  res.splice(0, res.length);
-  num = true;
-  oper = false;
 }
 
 function cleanAll() {
