@@ -64,7 +64,7 @@ function inputIn(symbol) {
       }
     }
 
-    if (parseInt(symbol) > 0 && parseInt(symbol) <= 9) {
+    if (parseInt(symbol, 10) > 0 && parseInt(symbol, 10) <= 9) {
       if (cadena.length === 0) {
         ventana.value = "";
       }
