@@ -92,7 +92,7 @@ function inputIn(symbol) {
     }
   }
   if (symbol === "=") {
-    if (num === true && !res.length === 0) {
+    if (num === true && !(res.length === "0")) {
       res.push(numero.reduce((sum, current) => sum + current));
       calculate();
     }
