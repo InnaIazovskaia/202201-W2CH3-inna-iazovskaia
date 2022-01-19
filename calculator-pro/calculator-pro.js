@@ -5,7 +5,7 @@ let resMult = 1;
 let resDiv = 0;
 let resSqr;
 
-function calculator_pro() {
+function calculatorPro() {
   const numeros = [];
   let num;
   do {
@@ -45,9 +45,9 @@ function calculator_pro() {
   }
 }
 
-calculator_pro();
+calculatorPro();
 
 const valor = confirm("¿Quieres continuar?");
 if (valor) {
-  calculator_pro();
+  calculatorPro();
 }
